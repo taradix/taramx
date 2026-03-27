@@ -136,6 +136,7 @@ smtpd_relay_restrictions = permit_mynetworks,
 # Recipient restrictions
 smtpd_recipient_restrictions =
   permit_mynetworks,
+  permit_sasl_authenticated,
   reject_invalid_helo_hostname,
   reject_unauth_destination
 
