@@ -44,7 +44,7 @@ fi
 
 # Create SASL credentials for submission authentication
 if [[ -n "${SUBMISSION_USER}" ]] && [[ -n "${SUBMISSION_PASS}" ]]; then
-  echo "${SUBMISSION_PASS}" | saslpasswd2 -p -c "${SUBMISSION_USER}"
+  echo "${SUBMISSION_PASS}" | saslpasswd2 -p -c -u "${MX_HOSTNAME}" "${SUBMISSION_USER}"
   chown postfix /etc/sasldb2
 fi
 
