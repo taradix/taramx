@@ -44,7 +44,7 @@ fi
 
 # Create SASL credentials for submission authentication
 if [[ -n "${SUBMISSION_USER}" ]] && [[ -n "${SUBMISSION_PASS}" ]]; then
-  echo "${SUBMISSION_PASS}" | saslpasswd2 -p -c -u "${MX_HOSTNAME}" "${SUBMISSION_USER}"
+  echo "${SUBMISSION_PASS}" | saslpasswd2 -p -c -u "${SERVER_HOSTNAME}" "${SUBMISSION_USER}"
   chown postfix /etc/sasldb2
 fi
 
@@ -56,7 +56,7 @@ echo >> /opt/postfix/conf/main.cf
 echo -e "\n# User Overrides" >> /opt/postfix/conf/main.cf
 touch /opt/postfix/conf/extra.cf
 sed -i '/\$myhostname/! { /myhostname/d }' /opt/postfix/conf/extra.cf
-echo -e "myhostname = ${MX_HOSTNAME}\n$(cat /opt/postfix/conf/extra.cf)" > /opt/postfix/conf/extra.cf
+echo -e "myhostname = ${SERVER_HOSTNAME}\n$(cat /opt/postfix/conf/extra.cf)" > /opt/postfix/conf/extra.cf
 
 # Set relay transport to downstream mail server
 if [[ -n "${RELAY_HOST}" ]]; then
