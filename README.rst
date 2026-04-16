@@ -1,8 +1,8 @@
 TaraMX
 ======
 
-.. image:: https://github.com/cr3/taramx/workflows/test/badge.svg
-       :target: https://github.com/cr3/taramx/actions
+.. image:: https://github.com/taradix/taramx/workflows/test/badge.svg
+       :target: https://github.com/taradix/taramx/actions
 
 Public SMTP gateway.
 

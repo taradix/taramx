@@ -55,7 +55,7 @@ Setting up
 
     .. code-block:: text
 
-        > git clone https://github.com/cr3/taramx
+        > git clone https://github.com/taradix/taramx
         > cd taramx
 
 -   Install dependencies:
