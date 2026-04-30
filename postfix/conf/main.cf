@@ -103,18 +103,6 @@ postscreen_access_list = permit_mynetworks,
   cidr:/opt/postfix/conf/custom_postscreen_whitelist.cidr,
   cidr:/opt/postfix/conf/postscreen_access.cidr
 
-# DNSBL configuration
-postscreen_dnsbl_action = enforce
-postscreen_dnsbl_threshold = 3
-postscreen_dnsbl_ttl = 5m
-postscreen_dnsbl_sites =
-  list.dnswl.org=127.0.[0..255].[0..3]*-2
-  zen.spamhaus.org=127.0.0.[2;3]*3
-  zen.spamhaus.org=127.0.0.[4..7]*6
-  zen.spamhaus.org=127.0.0.[10;11]*8
-  bl.spamcop.net*2
-  bl.mailspike.net=127.0.0.2*4
-
 # Disable certain EHLO keywords
 postscreen_discard_ehlo_keywords = chunking, silent-discard, smtputf8, dsn
 smtpd_discard_ehlo_keywords = chunking, silent-discard, smtputf8
