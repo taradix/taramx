@@ -31,15 +31,9 @@ else
 fi
 postmap -F hash:/opt/postfix/conf/sni.map;
 
-# Generate relay domains map from environment variable
-if [[ -n "${RELAY_DOMAINS}" ]]; then
-  echo -n "" > /opt/postfix/conf/relay_domains
-  IFS=',' read -r -a domains <<< "${RELAY_DOMAINS}"
-  for domain in "${domains[@]}"; do
-    domain=$(echo "${domain}" | xargs)
-    echo "${domain} OK" >> /opt/postfix/conf/relay_domains
-  done
-  postmap hash:/opt/postfix/conf/relay_domains
+if [[ -n "${RELAY_SOCKETMAP}" ]]; then
+  sed -i '/relay_domains/d' /opt/postfix/conf/extra.cf
+  echo "relay_domains = socketmap:inet:${RELAY_SOCKETMAP}:relay_domains" >> /opt/postfix/conf/extra.cf
 fi
 
 # Create SASL credentials for submission authentication

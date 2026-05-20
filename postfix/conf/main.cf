@@ -24,9 +24,6 @@ relayhost =
 mynetworks_style = subnet
 mydestination = localhost.localdomain, localhost
 
-# Relay domains — populated from RELAY_DOMAINS env var via postfix.sh
-relay_domains = hash:/opt/postfix/conf/relay_domains
-
 # Relay transport — set via RELAY_HOST env var in postfix.sh
 relay_transport = smtp:
 
